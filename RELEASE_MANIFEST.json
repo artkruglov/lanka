@@ -9,7 +9,7 @@
     "GOAL.md": "2dc59643ee08374d84b7a82f26f193456a832807902742d16fc377075740f619",
     "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
     "LOCAL_DEVELOPMENT_ROADMAP.md": "598d67ca1bc237b3936a433b2df48968837f75b131829e062aefa07428fd55ae",
-    "README.md": "bcd146c3bac1f7fbd7189a6677c36ed574105fd5cc06bbd151328d648e0af318",
+    "README.md": "cea00a82c1ae140be000f626825bcf5bba73faf6588485110038310309a6ace0",
     "RELEASE_NOTES.md": "596395773bff7f104958330f2fdb8c566ecc75e49e9229dae41b3571e4a1ddf4",
     "START_HERE.md": "fcf65153f0190148e23e3bb3a0c26319166095af3017e652a88ef111850ad7d2",
     "TELEGRAM_POST.md": "81de2f7a2b9e9f171d345ada55bd8448c8e2d93791b4eddc3c453e900a17138e",
@@ -715,6 +715,9 @@
     "vendor/shadcn-tailwind-4.13.0.LICENSE.md": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f",
     "vendor/shadcn-tailwind-4.13.0.css": "bc7d83425702955b4cb67cb14ede9d603f9d912376d57a2d81d661094d2a782a",
     "vite.config.ts": "54ac14e992ec41157d5c9edbd6417854684edd8a2127871edbd784de41477f4f",
-    "worker/index.ts": "2ed36d7fa996e946d9d7695c5925e7760246f6bf8fa35c06f1bc515c087dc450"
+    "worker/index.ts": "2ed36d7fa996e946d9d7695c5925e7760246f6bf8fa35c06f1bc515c087dc450",
+    "docs/images/lanka-home.png": "a687743bb05b6bd372cd0dc7e7a4f6de2fd29f4433ccfd0433c35b2632585efe",
+    "docs/images/lanka-folder.png": "21f3984e04d302c2dafd8f7c0335760da20818a2f9430b4ccc55186cfedac2df",
+    "docs/images/lanka-chat.png": "22c1c52296278969e669ab9f694ee272ff03c92f9e1fda653d87380d40bc190b"
   }
 }
