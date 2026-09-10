@@ -1,0 +1,9 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {build} from 'esbuild';
+await build({stdin:{contents:`export {focusV3Scene} from './lib/domain/focus-v3';export {demoDoc} from './lib/domain/model';`,resolveDir:process.cwd()},outfile:'.project-runtime/table-metadata-width-test.mjs',bundle:true,platform:'node',format:'esm',packages:'external'});
+const {focusV3Scene,demoDoc}=await import('../../.project-runtime/table-metadata-width-test.mjs');
+test('leading time metadata stays next to the event and every cell remains within the frame',()=>{
+ const d=demoDoc(),s={...d.slides[0],layout:'table',title:'Хронология',body:'Учебные данные',table:{columns:['Время','Событие'],columnRoles:['meta','key'],rows:[['10:05','Обнаружение'],['10:12','Ограничение'],['10:34','Восстановление']]}};const r=focusV3Scene(s,d.brand,0,1);assert.equal(r.overflow,false);const cells=r.items.filter(x=>x.kind==='text'&&x.editField?.startsWith('table:'));const time=cells.find(x=>x.editField==='table:0:0'),event=cells.find(x=>x.editField==='table:0:1');assert.ok(event.x-time.x<=280,'metadata should not expand into a wide blank column');for(const c of cells)assert.ok(c.x>=96&&c.x+c.w<=1504.01);for(const row of s.table.rows)for(const value of row)assert.ok(cells.some(c=>c.text===value));
+});
+test('text columns retain space with compact metadata at either edge',()=>{
+ for(const roles of [['meta','key','text'],['key','text','meta']]){const d=demoDoc(),s={...d.slides[0],layout:'table',title:'Проверки',body:'Учебные данные',table:{columns:['A','B','C'],columnRoles:roles,rows:[['01','Проверка','Ожидает'] ,['02','Результат','Готово']]}};const r=focusV3Scene(s,d.brand,0,1);assert.equal(r.overflow,false);for(const c of r.items.filter(x=>x.kind==='text'&&x.editField?.startsWith('table:')))assert.ok(c.x>=96&&c.x+c.w<=1504.01);}
+});

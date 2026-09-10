@@ -1,0 +1,12 @@
+{
+  "cover": { "job": "Promise and audience outcome", "titleLines": 3, "bodyWords": 24, "composition": "Large normal-weight title; narrow accent rule; no decorative monogram" },
+  "statement": { "job": "One takeaway", "titleLines": 3, "bodyWords": 28, "composition": "Open dark canvas; one thesis and its implication" },
+  "content": { "job": "Explain a claim", "paragraphs": 3, "bodyWords": 60, "composition": "Title on left, aligned argument rows on right; thin rules" },
+  "split": { "job": "Compare two equally described alternatives", "paragraphs": 2, "bodyWords": 56, "composition": "Two open columns, common baseline, no filled cards" },
+  "steps": { "job": "Ordered workflow", "paragraphs": 4, "bodyWords": 52, "composition": "Four milestones on a baseline; numbers express order" },
+  "metrics": { "job": "Show grounded quantities", "items": 4, "bodyWords": 18, "composition": "Large figures, units and labels; no number without context" },
+  "chart": { "job": "Compare actual values", "items": 8, "bodyWords": 18, "composition": "Zero baseline including negative values; units and source" },
+  "table": { "job": "Compare by shared criteria", "columns": 4, "rows": 6, "composition": "Open header, horizontal rules, no decorative zebra surfaces" },
+  "image": { "job": "Show product or evidence", "images": 1, "bodyWords": 24, "composition": "Large image frame; short explanation beside it; preserve aspect ratio" },
+  "closing": { "job": "Specify next action", "titleLines": 3, "bodyWords": 28, "composition": "One requested decision; no generic thank-you page" }
+}

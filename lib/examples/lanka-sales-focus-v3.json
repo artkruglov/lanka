@@ -1,0 +1,300 @@
+{
+  "doc": {
+    "schemaVersion": 1,
+    "id": "lanka-sales-focus-v3",
+    "title": "Lanka — презентации с участием агента",
+    "brand": {
+      "id": "lanka-default",
+      "name": "Lanka / Corporate",
+      "version": 2,
+      "primary": "#444BE8",
+      "ink": "#15182A",
+      "paper": "#F6F6F3",
+      "accent": "#A9AEFF",
+      "company": "LANKA",
+      "status": "certified"
+    },
+    "design": "focus-v3",
+    "brief": {
+      "audience": "Бизнес-заказчик крупной организации: руководитель команды, регулярно готовящей презентации.",
+      "decision": "Выбрать сценарий и ответственного для пилота Lanka.",
+      "keyMessage": "Lanka соединяет подготовку агентом с понятной человеку проверкой, правками и общим проектом."
+    },
+    "slides": [
+      {
+        "id": "v3-01-cover",
+        "layout": "cover",
+        "title": "Презентации с агентом.\nРешение — за вами.",
+        "eyebrow": "Предложение пилота",
+        "body": "Агент готовит историю и предлагает правки. Команда обсуждает и принимает результат.\n\nСентябрь 2026",
+        "notes": "Открыть с обещания, не с продукта. Аудитория и цель пока рабочие допущения; сказать это вслух, если спросят.",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+        ],
+        "intent": {
+          "role": "context",
+          "takeaway": "Агент готовит, команда решает",
+          "transition": "Где сегодня теряется работа команды?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "v3-02-problem",
+        "layout": "content",
+        "title": "Команде нужна одна общая версия",
+        "eyebrow": "Одна презентация — общая работа",
+        "body": "Автор\nГотовит историю и проверяет факты.\n\nКоллеги\nОставляют замечания у слайдов.\n\nВладелец\nВыбирает, какие изменения принять.",
+        "notes": "Три роли уже существуют в любой команде. Проблема не в людях, а в том, что у них нет одной версии документа.",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+        ],
+        "intent": {
+          "role": "problem",
+          "takeaway": "Три роли, одна версия",
+          "transition": "Как соединить подготовку и согласование?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "v3-03-process",
+        "layout": "steps",
+        "title": "Сначала задача, затем слайды",
+        "eyebrow": "От брифа к результату",
+        "body": "Уточнить\nДля кого и какое решение нужно.\n\nВыстроить\nГлавный вывод и аргументы.\n\nСобрать\nТекст, данные и оформление.\n\nПроверить\nОбсудить и принять изменения.",
+        "notes": "Бриф обязателен: агент не начинает без ответов или явных допущений. Проверка человеком не опция, а шаг процесса.",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+        ],
+        "intent": {
+          "role": "context",
+          "takeaway": "Бриф раньше слайдов",
+          "transition": "Что происходит, когда результат нужно изменить?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "v3-04-diff",
+        "layout": "split",
+        "title": "Замечание становится правкой",
+        "eyebrow": "Пример замечания и правки",
+        "body": "Изменение видно до применения. Владелец принимает или отклоняет.",
+        "notes": "Иллюстративный пример ревью, не цитата клиента. Показать, что «было» и «предложено» видны рядом до принятия.",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+        ],
+        "comparison": {
+          "prompt": {
+            "label": "Замечание коллеги",
+            "text": "«Вынеси решение в заголовок»"
+          },
+          "before": {
+            "label": "Было",
+            "text": "План пилота."
+          },
+          "after": {
+            "label": "Предложено агентом",
+            "text": "Начнём пилот с одной команды."
+          },
+          "status": "Ожидает решения владельца"
+        },
+        "intent": {
+          "role": "evidence",
+          "takeaway": "Правка видна до принятия",
+          "transition": "На чём основано такое редактирование?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "v3-05-thesis",
+        "layout": "statement",
+        "title": "Агент предлагает.\nКоманда решает.",
+        "eyebrow": "Принцип работы",
+        "body": "Изменения видны до применения. Примите нужные слайды или отправьте на доработку.",
+        "notes": "Единственный тёмный слайд деки. Тезис звучит после доказательства, а не до него.",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+        ],
+        "intent": {
+          "role": "recommendation",
+          "takeaway": "Агент предлагает, команда решает",
+          "transition": "По каким критериям оценивать пилот?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "v3-06-criteria",
+        "layout": "table",
+        "title": "Критерии успеха согласуем до старта",
+        "eyebrow": "Критерии пилота",
+        "body": "Целевые значения зафиксируем в брифе пилота",
+        "notes": "Целевых значений пока нет намеренно: их согласуем с заказчиком в брифе. Не обещать цифр.",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+        ],
+        "table": {
+          "columns": [
+            "Критерий",
+            "Что проверяем",
+            "Кто оценивает"
+          ],
+          "rows": [
+            [
+              "Время",
+              "Время от брифа до принятой версии",
+              "Владелец задачи"
+            ],
+            [
+              "Логика",
+              "Вывод и аргументы на каждом слайде",
+              "Бизнес-заказчик"
+            ],
+            [
+              "Дизайн",
+              "Соответствие шаблону компании",
+              "Бренд-дизайнер"
+            ],
+            [
+              "Точность",
+              "Источник у каждой цифры",
+              "Эксперт"
+            ]
+          ],
+          "columnRoles": [
+            "key",
+            "text",
+            "meta"
+          ],
+          "sourceId": "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+        },
+        "intent": {
+          "role": "decision",
+          "takeaway": "Четыре критерия и их владельцы",
+          "transition": "Какой объём нужен для первой проверки?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "v3-07-scope",
+        "layout": "metrics",
+        "title": "Начнём с одного рабочего сценария",
+        "eyebrow": "Предлагаемый объём пилота",
+        "body": "Это предложение для пилота. Объём и критерии согласуем вместе",
+        "notes": "Это параметры объёма, а не результаты. Рендерер покажет их строками, не крупными цифрами.",
+        "metrics": [
+          {
+            "id": "pilot-team",
+            "label": "Участники пилота",
+            "value": 1,
+            "unit": "команда",
+            "sourceId": "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+          },
+          {
+            "id": "pilot-story",
+            "label": "Регулярная задача",
+            "value": 1,
+            "unit": "сценарий",
+            "sourceId": "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+          },
+          {
+            "id": "pilot-reviews",
+            "label": "Создать и доработать",
+            "value": 2,
+            "unit": "цикла проверки",
+            "sourceId": "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+          }
+        ],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+        ],
+        "intent": {
+          "role": "recommendation",
+          "takeaway": "Одна команда, один сценарий, два цикла",
+          "transition": "Что нужно от заказчика, чтобы начать?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "v3-08-requirements",
+        "layout": "content",
+        "title": "Для старта нужны три решения на вашей стороне",
+        "eyebrow": "Следующий этап продукта",
+        "body": "Агент клиента\nПодключить и проверить рабочую сессию.\n\nПрава организации\nСогласовать SSO, папки и доступ.\n\nБренд компании\nУтвердить шаблоны и правила.",
+        "notes": "SSO, наследуемые права и сертификация бренда ещё не завершены. Сказать честно, что это часть внедрения.",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+        ],
+        "intent": {
+          "role": "options",
+          "takeaway": "Три решения на стороне клиента",
+          "transition": "Какой первый шаг?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "v3-09-closing",
+        "layout": "closing",
+        "title": "Выберите задачу для первого пилота",
+        "eyebrow": "Следующий шаг",
+        "body": "Назначьте владельца презентации. Вместе соберём бриф и критерии результата.",
+        "notes": "Одна просьба: назвать задачу и владельца. Ни цен, ни сроков, ни ROI не обещаем.",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937"
+        ],
+        "intent": {
+          "role": "next_step",
+          "takeaway": "Назовите задачу и владельца",
+          "transition": "",
+          "openQuestions": []
+        }
+      }
+    ]
+  },
+  "materials": [
+    {
+      "id": "src-6dd7de606aebe9eea668b769159722d2683c58169e5eaf1218a32ef7ff791937",
+      "name": "Lanka v0.10 product and pilot.md",
+      "contentType": "text/markdown",
+      "base64": "TGFua2EgdjAuMTAgaW1wbGVtZW50YXRpb24sIDIwMjYtMDktMDUuIFByb2R1Y3Qgc2NlbmFyaW8sIG5vdCBpbmRlcGVuZGVudCBlZmZpY2FjeSBldmlkZW5jZS4KQ2Fub25pY2FsIERlY2tEb2Mgc2VwYXJhdGVzIGJyaWVmIGFuZCBzbGlkZSBpbnRlbnQgZnJvbSBkZXNpZ24gcmVjaXBlcy4gRm9jdXMgdjIgaGFzIHBpbm5lZCB0b2tlbnMsIHJlY2lwZXMgYW5kIGZpeHR1cmUgY2hlY2tzLiBJdHMgaW1hZ2VyeSBjb250cmFjdCBmb3JiaWRzIGdlbmVyYXRlZCBpbGx1c3RyYXRpb25zIGFuZCBkZWZhdWx0cyB0byB6ZXJvIGltYWdlczsgYXNzZXQgb3JpZ2luIHN0aWxsIHJlcXVpcmVzIGh1bWFuIHZlcmlmaWNhdGlvbi4gSXQgaXMgYSBkZXNpZ24gY2FuZGlkYXRlLCBub3QgYW4gZW50ZXJwcmlzZS1jZXJ0aWZpZWQgQnJhbmRQYWNrLgpNYW5kYXRvcnkgYnJpZWYg4oaSIHJldmlld2VkIHN0b3J5IOKGkiBjb21wb3NpdGlvbi4gQSBzZXBhcmF0ZWx5IGF1dGhvcml6ZWQgYWdlbnQgcnVudGltZSBpcyByZXF1aXJlZC4gTGl2ZSBhdXRoZW50aWNhdGVkIG1vZGVsIGdlbmVyYXRpb24gaGFzIG5vdCBiZWVuIHZlcmlmaWVkIGluIHRoaXMgZW52aXJvbm1lbnQuCkNvbW1lbnRzIGFuZCBsaW5rZWQgcHJvcG9zYWxzOyBodW1hbiBhY2NlcHRzIGNoYW5nZXMsIHdpdGggc3RhbGUtdmVyc2lvbiBndWFyZHMuIE5vIGNoYXJhY3Rlci1sZXZlbCBDUkRULiBBbiBhY3RpdmUgcmV2aWV3IHdvcmtlciByZXVzZXMgb25lIENvZGV4IHRocmVhZCB3aGlsZSBpdHMgcHJvY2VzcyBsaXZlcy4KQ2xvdWQgY3JlYXRlL3JlYWQgTUNQIHJldHVybnMgZWRpdG9yIGFuZCBwcmVzZW50YXRpb24gbGlua3MgZm9yIHBlcnNpc3RlZCBkb2N1bWVudHMuIE9wZW5pbmcgYSBsaW5rIGRvZXMgbm90IGdyYW50IHBlcm1pc3Npb25zLiBMb2NhbCBwcm9qZWN0cyBleHBvcnQgYSBoYW5kb2ZmIHdpdGggaGFzaGVkIG1hdGVyaWFsIGJ5dGVzOyB0aGUgaHVtYW4gaW1wb3J0cyBpdCB0byBjcmVhdGUgYSBwcml2YXRlIGNsb3VkIGNvcHksIG5vdCBsaXZlIHN5bmNocm9uaXphdGlvbi4KTGFua2Egc2FsZXMgZXhhbXBsZSBvcGVucyBhbiBvd25lci1zcGVjaWZpYyBzYXZlZCBjb3B5OyByZXBlYXRlZCBvcGVuaW5nIGtlZXBzIHRoYXQgb3duZXIncyBlZGl0cy4gT3RoZXIgb3duZXJzIGdldCBzZXBhcmF0ZSBjb3BpZXMuIFNoYXJlIHRoZSBjYW5vbmljYWwgZG9jdW1lbnQgbGluayB0byBjb2xsYWJvcmF0ZSBvbiB0aGUgc2FtZSBkZWNrLgpTU08sIGluaGVyaXRlZCBvcmdhbml6YXRpb24vZm9sZGVyIHBlcm1pc3Npb25zLCBmdWxsIEJyYW5kUGFjayBjZXJ0aWZpY2F0aW9uLCBjb250aW51b3VzIGFnZW50IHNlc3Npb24gcmVjb3ZlcnkgYW5kIGRhdGEgcHVibGljYXRpb24gbGluZWFnZSBhcmUgbm90IGNvbXBsZXRlLgpQaWxvdCBwcm9wb3NhbDogb25lIHRlYW0sIG9uZSByZWN1cnJpbmcgcHJlc2VudGF0aW9uLCB0d28gcmV2aWV3IGN5Y2xlcy4gTm8gY3VzdG9tZXIsIHByaWNlLCBST0ksIG1lYXN1cmVkIHRpbWUgc2F2aW5nIG9yIGRlcGxveW1lbnQgZGF0ZSBpcyBwcm9taXNlZC4KVGhlIGJlZm9yZS9hZnRlciBoZWFkbGluZSBvbiBzbGlkZSA1IGlzIGFuIGlsbHVzdHJhdGl2ZSByZXZpZXcgZXhhbXBsZSwgbm90IGEgY3VzdG9tZXIgcXVvdGUuIFRoZSBzYWxlcyBkZWNrIGNvbnRhaW5zIG5vIGltYWdlcy4="
+    }
+  ],
+  "briefing": {
+    "audience": {
+      "value": "Бизнес-заказчик крупной организации: руководитель команды, регулярно готовящей презентации.",
+      "origin": "assumption"
+    },
+    "decision": {
+      "value": "Выбрать сценарий и ответственного для пилота Lanka.",
+      "origin": "assumption"
+    },
+    "keyMessage": {
+      "value": "Lanka соединяет подготовку агентом с понятной человеку проверкой, правками и общим проектом.",
+      "origin": "assumption"
+    }
+  }
+}

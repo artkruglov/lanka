@@ -1,0 +1,12 @@
+{
+  "cover": { "job": "State the promise", "titleLines": 3, "bodyWords": 24, "composition": "Blue upper field, bold white title; short explanation in the white lower field" },
+  "statement": { "job": "Establish one principle", "titleLines": 3, "bodyWords": 26, "composition": "Dark field, bold thesis; one consequence beneath it" },
+  "content": { "job": "Explain with two or three arguments", "paragraphs": 3, "bodyWords": 52, "composition": "Bold title on the left, open argument rows on the right; first line is a lead" },
+  "split": { "job": "Compare the same thing in two states", "paragraphs": 2, "bodyWords": 42, "composition": "Small labels over large comparison text; equal columns and a vertical divider. First line is the label, following lines are the comparison" },
+  "steps": { "job": "Explain an ordered workflow", "paragraphs": 4, "bodyWords": 48, "composition": "Title on the left, numbered vertical sequence on the right; first line is the step name" },
+  "metrics": { "job": "Show quantities with context", "items": 4, "bodyWords": 18, "composition": "Large numerals with nearby units; visible context beneath; never invent performance figures" },
+  "chart": { "job": "Compare sourced values", "items": 8, "bodyWords": 18, "composition": "Signed bars from a zero baseline; clear units; no decorative chart" },
+  "table": { "job": "Compare shared criteria", "columns": 4, "rows": 6, "composition": "Blue header band, quiet horizontal rules; equal column widths. Explanation goes in notes" },
+  "image": { "job": "Show real evidence", "images": 1, "bodyWords": 24, "composition": "One registered customer-supplied image, aspect ratio preserved; no generated or decorative illustration" },
+  "closing": { "job": "Ask for one concrete next action", "titleLines": 3, "bodyWords": 26, "composition": "Blue title on white; full-width blue lower band with the next action" }
+}

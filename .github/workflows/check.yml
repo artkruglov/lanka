@@ -1,0 +1,64 @@
+name: Source checks
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: source-checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22.23.2
+      - run: npm ci --no-audit --no-fund
+      - run: npm run check:source
+      - name: Build self-hosted runtime
+        run: docker build -t lanka-self-hosted:local -f deploy/self-hosted/Dockerfile .
+      - name: Install corporate test browser
+        timeout-minutes: 15
+        run: npx playwright install --with-deps --only-shell chromium
+      - name: Verify corporate deployment and recovery
+        timeout-minutes: 8
+        run: node scripts/check-self-hosted-compose.mjs
+  editor-browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        scenario: [normal, lost-upload-response]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22.23.2
+      - run: npm ci --no-audit --no-fund
+      - name: Install test browser
+        timeout-minutes: 15
+        run: npx playwright install --with-deps --only-shell chromium
+      - name: Verify normal editor workflow
+        if: matrix.scenario == 'normal'
+        timeout-minutes: 5
+        run: npm run check:editor-browser
+      - name: Verify lost upload response recovery
+        if: matrix.scenario == 'lost-upload-response'
+        timeout-minutes: 5
+        run: npm run check:editor-browser -- --lost-upload-response
+      - name: Verify chat message states
+        if: matrix.scenario == 'normal'
+        timeout-minutes: 3
+        run: npm run check:chat-browser
+      - name: Verify file history and restore
+        if: matrix.scenario == 'normal'
+        timeout-minutes: 3
+        run: node scripts/check-file-history-browser.mjs

@@ -1,0 +1,17 @@
+services:
+  codex-worker:
+    build: .
+    env_file: .env
+    restart: unless-stopped
+    read_only: true
+    init: true
+    mem_limit: 1g
+    cpus: 1
+    pids_limit: 128
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs:
+      - /app/work:uid=1000,gid=1000,mode=0700,size=268435456
+    environment:
+      TMPDIR: /app/work
+    stop_grace_period: 30s

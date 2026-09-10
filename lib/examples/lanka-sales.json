@@ -1,0 +1,350 @@
+{
+  "doc": {
+    "schemaVersion": 1,
+    "id": "a1026d37-bcc8-44be-b52e-c0051d3d82d4",
+    "title": "Lanka — презентации с участием агента",
+    "brand": {
+      "id": "lanka-default",
+      "name": "Lanka / Corporate",
+      "version": 1,
+      "primary": "#444BE8",
+      "ink": "#20243B",
+      "paper": "#FFFFFF",
+      "accent": "#A9AEFF",
+      "company": "LANKA",
+      "status": "certified"
+    },
+    "design": "focus-v1",
+    "brief": {
+      "audience": "Бизнес-заказчик крупной организации: руководитель команды, регулярно готовящей презентации.",
+      "decision": "Выбрать сценарий и ответственного для пилота Lanka.",
+      "keyMessage": "Lanka соединяет подготовку агентом с понятной человеку проверкой, правками и общим проектом."
+    },
+    "slides": [
+      {
+        "id": "d4f877cb-b49c-4375-bbf9-472b7d2e25b9",
+        "layout": "cover",
+        "title": "Презентации\nс участием агента.\nПод контролем команды.",
+        "eyebrow": "ПРЕДЛОЖЕНИЕ ПИЛОТА",
+        "body": "Соберите историю, обсудите изменения\nи сохраните результат в общем проекте.",
+        "notes": "Показать пилотный сценарий. Рабочие возможности и ограничения перечислены в источнике. Аудитория и цель остаются рабочими допущениями; цифры пилота — предложение, не результат.\n\n[Sources]\nLanka v0.9 product and pilot.md\n[/Sources]",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        ],
+        "intent": {
+          "role": "context",
+          "takeaway": "Презентации с участием агента. Под контролем команды.",
+          "transition": "Где сегодня теряется работа команды?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "0c5493ec-a68f-4f1b-9a23-c4415ab8383d",
+        "layout": "split",
+        "title": "Подготовка и проверка —\nв одном проекте",
+        "eyebrow": "ЗАДАЧА КОМАНДЫ",
+        "body": "Подготовить историю\nОпределить аудиторию, выводы и аргументы.\n\nДовести до решения\nОбсудить замечания и выбрать итоговую версию.",
+        "notes": "Показать пилотный сценарий. Рабочие возможности и ограничения перечислены в источнике. Аудитория и цель остаются рабочими допущениями; цифры пилота — предложение, не результат.\n\n[Sources]\nLanka v0.9 product and pilot.md\n[/Sources]",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        ],
+        "intent": {
+          "role": "problem",
+          "takeaway": "Подготовка и проверка — в одном проекте",
+          "transition": "Как соединить подготовку и согласование?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "fe05cc63-9520-4800-a8a7-2bcaf096e821",
+        "layout": "statement",
+        "title": "Агент предлагает.\nВы решаете,\nчто войдёт в презентацию.",
+        "eyebrow": "ПРИНЦИП LANKA",
+        "body": "Посмотрите изменения до их применения.\nПримите нужные слайды или отправьте на доработку.",
+        "notes": "Показать пилотный сценарий. Рабочие возможности и ограничения перечислены в источнике. Аудитория и цель остаются рабочими допущениями; цифры пилота — предложение, не результат.\n\n[Sources]\nLanka v0.9 product and pilot.md\n[/Sources]",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        ],
+        "intent": {
+          "role": "recommendation",
+          "takeaway": "Агент предлагает. Вы решаете, что войдёт в презентацию.",
+          "transition": "Как выглядит весь путь пользователя?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "c15ef405-cb7b-46d9-9a9b-d6543b2814e5",
+        "layout": "steps",
+        "title": "Начните с задачи.\nАгент уточнит остальное.",
+        "eyebrow": "ОТ ЗАПРОСА К ПРЕЗЕНТАЦИИ",
+        "body": "Уточнить\nАудиторию и нужное решение.\n\nВыстроить\nВыводы и аргументы.\n\nСобрать\nСлайды и материалы.\n\nПроверить\nОбсудить и принять.",
+        "notes": "Показать пилотный сценарий. Рабочие возможности и ограничения перечислены в источнике. Аудитория и цель остаются рабочими допущениями; цифры пилота — предложение, не результат.\n\n[Sources]\nLanka v0.9 product and pilot.md\n[/Sources]",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        ],
+        "intent": {
+          "role": "context",
+          "takeaway": "Начните с задачи. Агент уточнит остальное.",
+          "transition": "Что происходит, если результат нужно изменить?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "5eb3bbae-4422-4be2-98d9-42adb02c9e4e",
+        "layout": "split",
+        "title": "Замечание ведёт\nк конкретному изменению",
+        "eyebrow": "ПРИМЕР РАБОТЫ С ЗАГОЛОВКОМ",
+        "body": "Ваше замечание\n«Вынеси ожидаемое решение в заголовок».\n\nПредложение агента\n«Начнём пилот с одной команды».",
+        "notes": "Показать пилотный сценарий. Рабочие возможности и ограничения перечислены в источнике. Аудитория и цель остаются рабочими допущениями; цифры пилота — предложение, не результат.\n\n[Sources]\nLanka v0.9 product and pilot.md\n[/Sources]",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        ],
+        "intent": {
+          "role": "evidence",
+          "takeaway": "Замечание ведёт к конкретному изменению",
+          "transition": "На чём основано такое редактирование?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "38d3ae3b-4785-44d3-a4f2-0ea2e5bac4b5",
+        "layout": "split",
+        "title": "Содержание отделено\nот оформления",
+        "eyebrow": "СЦЕНАРИЙ И ДИЗАЙН",
+        "body": "Содержание\nВывод, аргументы, данные и источники каждого слайда.\n\nОформление\nКомпозиция, типографика и правила корпоративного бренда.",
+        "notes": "Показать пилотный сценарий. Рабочие возможности и ограничения перечислены в источнике. Аудитория и цель остаются рабочими допущениями; цифры пилота — предложение, не результат.\n\n[Sources]\nLanka v0.9 product and pilot.md\n[/Sources]",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        ],
+        "intent": {
+          "role": "evidence",
+          "takeaway": "Содержание отделено от оформления",
+          "transition": "Как организовать документы клиента?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "b3938db0-0480-45df-b47c-0d2d925889bc",
+        "layout": "content",
+        "title": "Откройте\nрезультат\nпо ссылке",
+        "eyebrow": "ПРЕЗЕНТАЦИЯ ОСТАЁТСЯ В ПРОЕКТЕ",
+        "body": "Посмотреть\nСлайды открываются в браузере.\n\nОтредактировать\nИзмените текст и сохраните версию.\n\nОбсудить\nДайте доступ коллеге и соберите замечания.",
+        "notes": "Показать пилотный сценарий. Рабочие возможности и ограничения перечислены в источнике. Аудитория и цель остаются рабочими допущениями; цифры пилота — предложение, не результат.\n\n[Sources]\nLanka v0.9 product and pilot.md\n[/Sources]",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        ],
+        "intent": {
+          "role": "evidence",
+          "takeaway": "Откройте результат по ссылке",
+          "transition": "Что готово к проверке и что нужно для внедрения?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "d047c869-d5ff-4edf-9a4c-31933c8f7082",
+        "layout": "table",
+        "title": "Пилот проверяет продукт\nперед внедрением",
+        "eyebrow": "ГОТОВНОСТЬ ПРОДУКТА",
+        "body": "",
+        "notes": "Показать пилотный сценарий. Рабочие возможности и ограничения перечислены в источнике. Аудитория и цель остаются рабочими допущениями; цифры пилота — предложение, не результат.\n\n[Sources]\nLanka v0.9 product and pilot.md\n[/Sources]",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        ],
+        "table": {
+          "columns": [
+            "Сценарий",
+            "В пилоте",
+            "Для внедрения"
+          ],
+          "rows": [
+            [
+              "Подготовка",
+              "Бриф и план",
+              "Агент клиента"
+            ],
+            [
+              "Правки",
+              "Редактор и review",
+              "Командный процесс"
+            ],
+            [
+              "Дизайн",
+              "Focus v1",
+              "Утверждение бренда"
+            ],
+            [
+              "Доступ",
+              "Права на документ",
+              "Организация и SSO"
+            ]
+          ],
+          "sourceId": "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        },
+        "intent": {
+          "role": "options",
+          "takeaway": "Пилот проверяет продукт перед внедрением",
+          "transition": "По каким критериям оценивать пилот?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "27d62394-774b-44b4-a2a8-ee46dba60f85",
+        "layout": "table",
+        "title": "Оценим результат\nна вашей презентации",
+        "eyebrow": "КРИТЕРИИ ПИЛОТА",
+        "body": "",
+        "notes": "Показать пилотный сценарий. Рабочие возможности и ограничения перечислены в источнике. Аудитория и цель остаются рабочими допущениями; цифры пилота — предложение, не результат.\n\n[Sources]\nLanka v0.9 product and pilot.md\n[/Sources]",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        ],
+        "table": {
+          "columns": [
+            "Критерий",
+            "Что проверяем",
+            "Кто оценивает"
+          ],
+          "rows": [
+            [
+              "Время",
+              "Принятый черновик",
+              "Владелец задачи"
+            ],
+            [
+              "Логика",
+              "Вывод и аргументы",
+              "Бизнес-заказчик"
+            ],
+            [
+              "Дизайн",
+              "Согласованный стиль",
+              "Бренд-дизайнер"
+            ],
+            [
+              "Точность",
+              "Данные и источники",
+              "Эксперт"
+            ]
+          ],
+          "sourceId": "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        },
+        "intent": {
+          "role": "decision",
+          "takeaway": "Оценим результат на вашей презентации",
+          "transition": "Какой объём нужен для первой проверки?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "376e36bd-d2b3-479a-ac1f-3aad3a71baa9",
+        "layout": "metrics",
+        "title": "Одна команда.\nОдин повторяющийся сценарий.",
+        "eyebrow": "ПРЕДЛАГАЕМЫЙ ОБЪЁМ",
+        "body": "Сценарий и критерии согласуем вместе.",
+        "notes": "Показать пилотный сценарий. Рабочие возможности и ограничения перечислены в источнике. Аудитория и цель остаются рабочими допущениями; цифры пилота — предложение, не результат.\n\n[Sources]\nLanka v0.9 product and pilot.md\n[/Sources]",
+        "metrics": [
+          {
+            "id": "pilot-team",
+            "label": "Участники пилота",
+            "value": 1,
+            "unit": "команда",
+            "sourceId": "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+          },
+          {
+            "id": "pilot-story",
+            "label": "Регулярная задача",
+            "value": 1,
+            "unit": "сценарий",
+            "sourceId": "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+          },
+          {
+            "id": "pilot-reviews",
+            "label": "Создать и доработать",
+            "value": 2,
+            "unit": "цикла проверки",
+            "sourceId": "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+          }
+        ],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        ],
+        "intent": {
+          "role": "recommendation",
+          "takeaway": "Одна команда. Один повторяющийся сценарий.",
+          "transition": "Что нужно от заказчика, чтобы начать?",
+          "openQuestions": []
+        }
+      },
+      {
+        "id": "5eea4930-0ecf-442f-bf19-b9b9a8652ac7",
+        "layout": "closing",
+        "title": "Выберите задачу\nдля первого пилота.",
+        "eyebrow": "СЛЕДУЮЩИЙ ШАГ",
+        "body": "Назначьте владельца презентации.\nВместе соберём бриф и критерии результата.",
+        "notes": "Показать пилотный сценарий. Рабочие возможности и ограничения перечислены в источнике. Аудитория и цель остаются рабочими допущениями; цифры пилота — предложение, не результат.\n\n[Sources]\nLanka v0.9 product and pilot.md\n[/Sources]",
+        "metrics": [],
+        "chart": [],
+        "chartUnit": "",
+        "sourceIds": [
+          "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd"
+        ],
+        "intent": {
+          "role": "next_step",
+          "takeaway": "Выберите задачу для первого пилота.",
+          "transition": "",
+          "openQuestions": []
+        }
+      }
+    ]
+  },
+  "materials": [
+    {
+      "id": "src-d2366a278870120579454fc39e18ff0b430f30a4a1593d8d80bd4bb7e68814bd",
+      "name": "Lanka v0.9 product and pilot.md",
+      "contentType": "text/markdown",
+      "base64": "TGFua2EgdjAuOSBpbXBsZW1lbnRhdGlvbiwgMjAyNi0wOS0wNS4gUHJvZHVjdCBzY2VuYXJpbywgbm90IGluZGVwZW5kZW50IGVmZmljYWN5IGV2aWRlbmNlLgpDYW5vbmljYWwgRGVja0RvYyBzZXBhcmF0ZXMgYnJpZWYgYW5kIHNsaWRlIGludGVudCBmcm9tIGRlc2lnbiByZWNpcGVzLiBGb2N1cyB2MSBoYXMgcGlubmVkIHRva2VucywgcmVjaXBlcyBhbmQgZml4dHVyZSBjaGVja3MuIEl0IGlzIGEgZGVzaWduIGNhbmRpZGF0ZSwgbm90IGFuIGVudGVycHJpc2UtY2VydGlmaWVkIEJyYW5kUGFjay4KTWFuZGF0b3J5IGJyaWVmIOKGkiByZXZpZXdlZCBzdG9yeSDihpIgY29tcG9zaXRpb24uIEEgc2VwYXJhdGVseSBhdXRob3JpemVkIGFnZW50IHJ1bnRpbWUgaXMgcmVxdWlyZWQuIExpdmUgYXV0aGVudGljYXRlZCBtb2RlbCBnZW5lcmF0aW9uIGhhcyBub3QgYmVlbiB2ZXJpZmllZCBpbiB0aGlzIGVudmlyb25tZW50LgpDb21tZW50cyBhbmQgbGlua2VkIHByb3Bvc2FsczsgaHVtYW4gYWNjZXB0cyBjaGFuZ2VzLCB3aXRoIHN0YWxlLXZlcnNpb24gZ3VhcmRzLiBObyBjaGFyYWN0ZXItbGV2ZWwgQ1JEVC4gQW4gYWN0aXZlIHJldmlldyB3b3JrZXIgcmV1c2VzIG9uZSBDb2RleCB0aHJlYWQgd2hpbGUgaXRzIHByb2Nlc3MgbGl2ZXMuCkNsb3VkIGNyZWF0ZS9yZWFkIE1DUCByZXR1cm5zIGVkaXRvciBhbmQgcHJlc2VudGF0aW9uIGxpbmtzIGZvciBwZXJzaXN0ZWQgZG9jdW1lbnRzLiBPcGVuaW5nIGEgbGluayBkb2VzIG5vdCBncmFudCBwZXJtaXNzaW9ucy4gTG9jYWwgcHJvamVjdHMgZXhwb3J0IGEgaGFuZG9mZiB3aXRoIGhhc2hlZCBtYXRlcmlhbCBieXRlczsgdGhlIGh1bWFuIGltcG9ydHMgaXQgdG8gY3JlYXRlIGEgcHJpdmF0ZSBjbG91ZCBjb3B5LCBub3QgbGl2ZSBzeW5jaHJvbml6YXRpb24uCkxhbmthIHNhbGVzIGV4YW1wbGUgb3BlbnMgYW4gb3duZXItc3BlY2lmaWMgc2F2ZWQgY29weTsgcmVwZWF0ZWQgb3BlbmluZyBrZWVwcyB0aGF0IG93bmVyJ3MgZWRpdHMuIE90aGVyIG93bmVycyBnZXQgc2VwYXJhdGUgY29waWVzLiBTaGFyZSB0aGUgY2Fub25pY2FsIGRvY3VtZW50IGxpbmsgdG8gY29sbGFib3JhdGUgb24gdGhlIHNhbWUgZGVjay4KU1NPLCBpbmhlcml0ZWQgb3JnYW5pemF0aW9uL2ZvbGRlciBwZXJtaXNzaW9ucywgZnVsbCBCcmFuZFBhY2sgY2VydGlmaWNhdGlvbiwgY29udGludW91cyBhZ2VudCBzZXNzaW9uIHJlY292ZXJ5IGFuZCBkYXRhIHB1YmxpY2F0aW9uIGxpbmVhZ2UgYXJlIG5vdCBjb21wbGV0ZS4KUGlsb3QgcHJvcG9zYWw6IG9uZSB0ZWFtLCBvbmUgcmVjdXJyaW5nIHByZXNlbnRhdGlvbiwgdHdvIHJldmlldyBjeWNsZXMuIE5vIGN1c3RvbWVyLCBwcmljZSwgUk9JLCBtZWFzdXJlZCB0aW1lIHNhdmluZyBvciBkZXBsb3ltZW50IGRhdGUgaXMgcHJvbWlzZWQuClRoZSBiZWZvcmUvYWZ0ZXIgaGVhZGxpbmUgb24gc2xpZGUgNSBpcyBhbiBpbGx1c3RyYXRpdmUgcmV2aWV3IGV4YW1wbGUsIG5vdCBhIGN1c3RvbWVyIHF1b3RlLg=="
+    }
+  ],
+  "briefing": {
+    "audience": {
+      "value": "Бизнес-заказчик крупной организации: руководитель команды, регулярно готовящей презентации.",
+      "origin": "assumption"
+    },
+    "decision": {
+      "value": "Выбрать сценарий и ответственного для пилота Lanka.",
+      "origin": "assumption"
+    },
+    "keyMessage": {
+      "value": "Lanka соединяет подготовку агентом с понятной человеку проверкой, правками и общим проектом.",
+      "origin": "assumption"
+    }
+  }
+}

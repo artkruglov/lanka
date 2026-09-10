@@ -1,0 +1,17 @@
+import {fileURLToPath} from 'node:url';
+import test from 'node:test';import assert from 'node:assert/strict';import {companionDiagnostic,CompanionFault} from './companion-faults.mjs';import {BridgeTransportError} from './corporate-mcp-client.mjs';import {checkCompanionConnection} from './companion-daemon.mjs';
+test('diagnostics never echo error payloads, paths or credentials',()=>{const secret='private-bearer-and-path';for(const error of [new Error(secret),new BridgeTransportError(secret,'unknown'),Object.assign(new Error(secret),{code:'EACCES'}),new CompanionFault(secret)])assert.equal(JSON.stringify(companionDiagnostic(error)).includes(secret),false);});
+test('authentication, authorization, uncertain network and interruption remain distinct',()=>{assert.equal(companionDiagnostic(new CompanionFault('AUTH_REQUIRED')).code,'AUTH_REQUIRED');assert.equal(companionDiagnostic(new BridgeTransportError('http_401','rejected')).code,'ACCESS_DENIED');assert.equal(companionDiagnostic(new BridgeTransportError('network_failure','unknown')).code,'NETWORK_UNCERTAIN');assert.equal(companionDiagnostic(new Error('native'),{interrupted:true}).code,'INTERRUPTED');assert.match(companionDiagnostic(new Error('native'),{interrupted:true}).message,/не подтверждает/);});
+test('connection check reads binding and account without receiving, claiming or starting a model',async()=>{const calls=[],c={sessionId:'session'},client={initialize:async()=>calls.push('initialize'),call:async name=>{calls.push(name);return {content:[{type:'text',text:JSON.stringify({sessionId:c.sessionId,binding:{active:true,taskBound:true}})}]};}};const checked=await checkCompanionConnection(c,{client,checkAccount:async()=>calls.push('account/read')});assert.equal(checked.state,'connection_checked');assert.deepEqual(calls,['initialize','lanka_read_conversation','account/read']);});
+test('unbound or standalone key cannot pass readiness or reach native account check',async()=>{await assert.rejects(checkCompanionConnection({sessionId:'s'},{client:{initialize:async()=>{},call:async()=>({content:[{type:'text',text:JSON.stringify({sessionId:'s',binding:{active:true,taskBound:false}})}]})},checkAccount:()=>assert.fail('No account check')}),e=>e.code==='BINDING_REQUIRED');});
+
+import {spawnSync} from 'node:child_process';
+test('CLI rejects malformed configuration with safe JSON and no native startup',()=>{
+ const result=spawnSync(process.execPath,[fileURLToPath(new URL('./companion-daemon.mjs',import.meta.url)),'--check','--config','secret-relative-config'],{encoding:'utf8'});
+ assert.equal(result.status,1);assert.equal(result.stdout,'');
+ const diagnostic=JSON.parse(result.stderr);assert.equal(diagnostic.code,'CONFIGURATION');
+ assert.equal(result.stderr.includes('secret-relative-config'),false);
+});
+test('connection title comes from authorized conversation before native login and excludes contents',async()=>{
+ const seen=[];await assert.rejects(checkCompanionConnection({sessionId:'chosen'},{client:{initialize:async()=>{},call:async()=>({content:[{type:'text',text:JSON.stringify({sessionId:'chosen',binding:{active:true,taskBound:true},session:{title:'Планы команды',private:'hidden'},messages:[{text:'private message'}]})}]})},onContext:c=>seen.push(c),checkAccount:async()=>{throw new CompanionFault('AUTH_REQUIRED');}}),e=>e.code==='AUTH_REQUIRED');assert.deepEqual(seen,[{sessionId:'chosen',title:'Планы команды'}]);
+});

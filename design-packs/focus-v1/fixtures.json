@@ -1,0 +1,12 @@
+[
+  {"layout":"cover","title":"Решение начинается\nс ясной задачи","body":"Один сценарий и понятный результат."},
+  {"layout":"statement","title":"Make the decision\nvisible.","body":"A short claim, supported by evidence."},
+  {"layout":"content","title":"Сначала\nаргументы","body":"Контекст\nКто принимает решение.\n\nОснование\nКакие данные доступны.\n\nДействие\nЧто делаем дальше."},
+  {"layout":"split","title":"Один критерий сравнения","body":"Первый вариант\nОдна команда и один сценарий.\n\nВторой вариант\nНесколько команд и общий процесс."},
+  {"layout":"steps","title":"Порядок работы","body":"Бриф\nЦель и аудитория.\n\nПлан\nАргументы и вывод.\n\nСлайды\nТекст и материалы.\n\nПроверка\nРешение человека."},
+  {"layout":"metrics","title":"Объём пилота","metrics":[{"id":"fixture-1","value":1,"unit":"команда","label":"Владелец задачи"},{"id":"fixture-2","value":2,"unit":"цикла","label":"Создать и проверить"}]},
+  {"layout":"chart","title":"Изменение по категориям","chart":[{"label":"Категория А","value":-12},{"label":"Категория Б","value":18},{"label":"Категория В","value":0}],"chartUnit":"ед."},
+  {"layout":"table","title":"Сравнение вариантов","table":{"columns":["Критерий","Вариант А","Вариант Б"],"rows":[["Масштаб","Одна команда","Две команды"],["Проверка","Один цикл","Два цикла"]]}},
+  {"layout":"image","title":"Show the actual product","body":"Explain what the reader should notice.","assetId":"fixture-image"},
+  {"layout":"closing","title":"Согласуем\nследующий шаг","body":"Выберите владельца и задачу."}
+]

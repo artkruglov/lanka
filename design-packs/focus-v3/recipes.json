@@ -1,0 +1,108 @@
+{
+  "_principles": [
+    "Title on top, evidence anchored to the bottom, air between them. The renderer measures blocks and places them; nothing sits on a hard-coded y.",
+    "One dominant element per slide: the title on argument slides, the evidence on evidence slides.",
+    "Variants are chosen by the renderer from the shape of the content. The agent chooses the job (layout), never the variant.",
+    "Primary is a surface only on the closing slide. Tint is the only secondary surface. Primary text appears as at most one class of elements per slide.",
+    "No images by default, no icons, no gradients, no shadows, square corners. Rules are 1 px, the table header rule is 2 px.",
+    "Russian typography is enforced in the renderer: short prepositions and the dash are glued to their neighbours, quotes are «», figures are tabular."
+  ],
+  "cover": {
+    "job": "State the promise and set the brand",
+    "surface": "paper",
+    "shape": { "title": "1–3 display lines; the part after a line break is set in primary", "body": "paragraph 1: lead ≤ 24 words (7 columns); paragraph 2 (optional): one meta line shown in the footer in mono", "eyebrow": "section label in the chrome" },
+    "composition": "Poster: title anchored above the lead at the bottom of the frame, chrome at the top, no page counter competition. The blue ruler marks slide 1.",
+    "dominant": "title",
+    "budgets": { "titleLines": 3, "bodyWords": 24 }
+  },
+  "statement": {
+    "job": "Establish one principle after the evidence",
+    "surface": "ink",
+    "shape": { "title": "1–2 display lines; the part after a line break is set in accent", "body": "≤ 26 words, 7 columns" },
+    "composition": "Dark field, display title at the top, one consequence at the bottom. Max one per deck; never before the first evidence slide.",
+    "dominant": "title",
+    "budgets": { "titleLines": 2, "bodyWords": 26 }
+  },
+  "closing": {
+    "job": "Ask for one concrete next action",
+    "surface": "primary",
+    "shape": { "title": "1–2 display lines", "body": "≤ 26 words, 7 columns" },
+    "composition": "Blue field, paper title at the top, the action at the bottom. The only slide where primary is a surface.",
+    "dominant": "title",
+    "budgets": { "titleLines": 2, "bodyWords": 26 }
+  },
+  "content": {
+    "job": "Explain one idea or two to four arguments",
+    "surface": "paper",
+    "shape": { "title": "h1, ≤ 2 lines", "body": "One plain paragraph, or 2–4 paragraphs separated by a blank line; first line of each argument is its name (h2), the rest is one sentence (small)" },
+    "variants": { "fact-rows": "Evidence-role content with 2\u20134 named facts: readable label left, explanation right, measured rows anchored to content bottom; tries tighter row spacing without reducing type, then falls back to cols if rows do not fit.", "lead": "One paragraph in body type across seven columns, expanding to ten only when needed", "cols": "2, 3 or 4 equal columns spanning the frame; each column opens with a 1 px ink rule and a mono index" },
+    "selection": "One paragraph selects lead. Evidence-role content with 2–4 named paragraphs tries fact-rows, otherwise cols. The renderer checks measured height before choosing rows.",
+    "dominant": "title",
+    "budgets": { "titleLines": 2, "parts": [1, 4], "leadWords": 40, "wordsPerPart": 14 }
+  },
+  "steps": {
+    "job": "Explain an ordered workflow",
+    "surface": "paper",
+    "shape": { "title": "h1, ≤ 2 lines", "body": "2–4 paragraphs; first line is the step name" },
+    "variants": { "cols": "same geometry as content.cols; indices are mandatory and ordered" },
+    "selection": "always cols",
+    "dominant": "title",
+    "budgets": { "titleLines": 2, "parts": [2, 4], "wordsPerPart": 12 }
+  },
+  "split": {
+    "job": "Show the same thing in two states, or two options side by side",
+    "surface": "paper",
+    "shape": {
+      "title": "h1, ≤ 2 lines, states the takeaway (not the quote)",
+      "comparison": "structured: { mode?: 'neutral' | 'correction', prompt?: {label, text}, before: {label, text}, after: {label, text}, status?: string }",
+      "body": "optional caption (≤ 16 words) shown under the prompt or in the footer"
+    },
+    "variants": {
+      "before-after": "directional. Left 4 columns: prompt label + quote + caption. Right 8 columns: tint card with a readable 'before' and bold 'after'. Set mode:'neutral' for processes or alternatives: no strike-through, both texts in ink. Use mode:'correction' only to replace erroneous text: struck-through 'before' in muted. Missing mode preserves the legacy correction appearance; labels in mono; the 'after' label is the one primary text on the slide. Without a prompt the card spans 12 columns.",
+      "options": "symmetric. Two 6-column blocks with a 1 px rule, a mono label and 40 px text; neither side is emphasised."
+    },
+    "selection": "comparison present → before-after; otherwise body with exactly two 'label\\ntext' paragraphs → options; anything else is rejected",
+    "dominant": "after text (before-after) or both texts (options)",
+    "defaults": { "promptLabel": "Замечание", "beforeLabel": "Было", "afterLabel": "Предложено" },
+    "budgets": { "titleLines": 2, "wordsPerState": 8, "captionWords": 16 }
+  },
+  "table": {
+    "job": "Compare shared criteria",
+    "surface": "paper",
+    "shape": { "title": "h1, ≤ 2 lines", "table": "2–4 columns, ≤ 6 rows; columnRoles optional: key | text | meta | number (first column defaults to key)", "body": "optional one-line caption shown in the footer in mono" },
+    "variants": { "auto": "index column 88 px in mono; key columns prefer 3–4 grid columns in 28 px bold, with all widths constrained to the shared frame; text columns share the rest proportionally to their measured content; multiline headers reserve their measured height; meta columns are muted; number columns are right-aligned" },
+    "selection": "always auto",
+    "dominant": "key column",
+    "budgets": { "titleLines": 2, "cellWords": 6 }
+  },
+  "metrics": {
+    "job": "Show quantities with context",
+    "surface": "paper",
+    "shape": { "title": "h1, ≤ 2 lines", "metrics": "1–4 items {label, value, unit, sourceId?}", "body": "optional one-line caption shown in the footer in mono" },
+    "variants": {
+      "facts": "spec-sheet rows: mono label in 4 columns, '<value> <unit>' in 40 px bold in 8 columns, rules between rows. For scope and parameters.",
+      "hero": "up to 4 columns with 96 px numerals, the unit in 40 px and the label in small. Only for measured quantities."
+    },
+    "selection": "hero only when every metric has a sourceId and (|value| ≥ 10 or unit contains %); otherwise facts",
+    "dominant": "values",
+    "budgets": { "titleLines": 2, "items": 4, "labelWords": 4 }
+  },
+  "chart": {
+    "job": "Compare sourced values",
+    "surface": "paper",
+    "shape": { "title": "h1, ≤ 2 lines", "chart": "≤ 8 {label, value}; chartUnit", "body": "caption with the source or the data caveat, shown in the footer" },
+    "variants": { "bars": "horizontal rows: label in 3 columns, signed bar from a 1 px ink zero line in 6 columns, value in mono right-aligned in 3 columns; positive bars primary, negative muted; row heights measure the full label and value", "bars-wide-labels": "labels widen to 4 or 5 grid columns while bars use 5 or 4; values retain 3 columns; content and font sizes are preserved" },
+    "selection": "start with bars; if measured rows exceed the two-line heading budget or a label token does not fit, try wider labels; the final measured content must also fit below the actual title",
+    "dominant": "bars",
+    "budgets": { "titleLines": 2, "items": 8 }
+  },
+  "image": {
+    "job": "Show real evidence supplied by the customer",
+    "surface": "paper",
+    "shape": { "title": "h1, ≤ 2 lines", "assetId": "one registered image", "body": "≤ 24 words in 4 columns" },
+    "variants": { "right": "image in the right 8 columns at 16:9, anchored to the content bottom; text in the left 4 columns, bottom-aligned" },
+    "selection": "always right",
+    "dominant": "image",
+    "budgets": { "titleLines": 2, "bodyWords": 24 }
+  }
+}

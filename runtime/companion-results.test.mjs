@@ -1,0 +1,21 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {mkdtemp,writeFile,rm} from 'node:fs/promises';import {join} from 'node:path';import {tmpdir} from 'node:os';import {randomUUID} from 'node:crypto';import {capturedReference,recordCapturedResult,readCapturedResults} from './companion-results.mjs';
+const result=data=>({content:[{type:'text',text:JSON.stringify(data)}]});
+test('only successful mutation results produce cards, never arbitrary model text',()=>{const id=randomUUID();assert.equal(capturedReference('lanka_get_document_view',{},result({id,revision:1})),null);assert.equal(capturedReference('lanka_create_document',{}, {...result({id,revision:1}),isError:true}),null);assert.deepEqual(capturedReference('lanka_create_document',{},result({id,revision:1})),{documentId:id,revision:1});assert.throws(()=>capturedReference('lanka_propose_commands',{documentId:id},result({proposalId:'invented',revision:1})));});
+test('proposal reference uses the worker fixed document and tool returned revision',()=>{const documentId=randomUUID(),proposalId=randomUUID();assert.deepEqual(capturedReference('lanka_propose_commands',{documentId},result({proposalId,revision:3})),{documentId,proposalId,revision:3});});
+test('private ledger deduplicates identical successful retries and rejects another execution',async t=>{const dir=await mkdtemp(join(tmpdir(),'lanka-results-'));t.after(()=>rm(dir,{recursive:true,force:true}));const path=join(dir,'results'),execution=randomUUID(),id=randomUUID();await writeFile(path,'',{mode:0o600});for(let i=0;i<2;i++)await recordCapturedResult(path,execution,'lanka_create_document',{},result({id,revision:1}));assert.deepEqual(await readCapturedResults(path,execution),[{documentId:id,revision:1}]);await assert.rejects(readCapturedResults(path,randomUUID()),/evidence/);});
+test('invalid or oversized result ledgers cannot become final response attachments',async t=>{const dir=await mkdtemp(join(tmpdir(),'lanka-results-'));t.after(()=>rm(dir,{recursive:true,force:true}));const path=join(dir,'results');await writeFile(path,'x'.repeat(66000),{mode:0o600});await assert.rejects(readCapturedResults(path,randomUUID()),/ledger/);});
+
+test('recovery does not accept matching text when the recorded result card is missing',async()=>{
+ const {reconcileFinishedExecution}=await import('./companion-recovery.mjs');const s={sessionId:randomUUID(),messageId:randomUUID(),executionId:randomUUID(),replyRequestId:randomUUID(),reply:'Answer',results:[{documentId:randomUUID(),revision:1}]};
+ await assert.rejects(reconcileFinishedExecution({call:async()=>result({sessionId:s.sessionId,hasMore:false,messages:[{id:s.messageId,role:'user',delivery:'completed',execution:{id:s.executionId,state:'stopped',reportedBy:'external_mcp_client'}},{id:s.replyRequestId,role:'assistant',replyTo:s.messageId,text:'Answer',results:[]}]})},{snapshot:()=>s,advance:()=>assert.fail('Cannot confirm missing card')}),/reconciliation/);
+});
+
+test('current revisions refresh once per document while proposal identity and source evidence remain intact',async()=>{
+ const {refreshCapturedResults}=await import('./companion-results.mjs'),id=randomUUID(),proposalId=randomUUID(),references=[{documentId:id,revision:1,proposalId},{documentId:id,revision:1}];let reads=0;
+ const updated=await refreshCapturedResults(references,async documentId=>{reads++;return {id:documentId,revision:2};});assert.equal(reads,1);assert.equal(updated[0].proposalId,proposalId);assert.equal(updated[0].revision,2);assert.equal(references[0].revision,1);
+});
+test('revoked or inconsistent result reads cannot generate a silently substituted card',async()=>{
+ const {refreshCapturedResults}=await import('./companion-results.mjs'),id=randomUUID(),r=[{documentId:id,revision:2}];await assert.rejects(refreshCapturedResults(r,async()=>{throw Error('Revoked');}),/Revoked/);await assert.rejects(refreshCapturedResults(r,async()=>({id:randomUUID(),revision:3})),/verified/);await assert.rejects(refreshCapturedResults(r,async()=>({id,revision:1})),/verified/);
+});
+
+test('full draft proposals produce the same document review card',()=>{const documentId=randomUUID(),proposalId=randomUUID();assert.deepEqual(capturedReference('lanka_propose_draft',{documentId},result({proposalId,revision:1})),{documentId,proposalId,revision:1});});

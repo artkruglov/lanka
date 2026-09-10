@@ -1,0 +1,6 @@
+node_modules
+work
+__pycache__
+.env
+*.test.mjs
+extract_test.py

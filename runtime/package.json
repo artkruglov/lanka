@@ -1,0 +1,9 @@
+{
+  "name": "lanka-codex-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.13" },
+  "scripts": { "start": "node worker.mjs", "check": "node check.mjs", "test": "node --test *.test.mjs" },
+  "dependencies": { "@openai/codex": "0.153.4" }
+}

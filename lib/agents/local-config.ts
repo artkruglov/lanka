@@ -1,0 +1,2 @@
+import { z } from "zod";
+export const localChatConfigSchema=z.object({format:z.literal("lanka-local-chat/v1"),workspaceRoot:z.string().startsWith("/"),tenantId:z.string().uuid(),ownerId:z.string().uuid(),runtimeRoot:z.string().startsWith("/"),command:z.string().startsWith("/"),codexHome:z.string().startsWith("/"),runtimeMode:z.enum(['configured','dedicated']).optional(),connection:z.object({host:z.string().startsWith("/"),port:z.number().int(),database:z.string(),user:z.string()}).strict()}).strict();

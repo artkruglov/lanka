@@ -1,0 +1,24 @@
+import {validateNpmSbom} from './validate-npm-sbom.mjs';
+import {normalizeNpmSbom} from './normalize-npm-sbom.mjs';
+import {readFile,mkdir,writeFile,rm} from 'node:fs/promises';
+import {resolve,join} from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+const target=process.argv[2];
+if(!target||process.argv.length!==3)throw Error('Usage: npm run package:sbom -- <new-output-directory>');
+const output=resolve(target),hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+const lock=await readFile('package-lock.json'),pkg=await readFile('package.json');
+const generated=spawnSync('npm',['sbom','--package-lock-only','--sbom-format','cyclonedx','--sbom-type','application'],{encoding:'utf8',maxBuffer:64*1024*1024,timeout:60000});
+if(generated.error||generated.status!==0)throw Error(generated.error?.message||generated.stderr||'npm sbom failed');
+if(!lock.equals(await readFile('package-lock.json'))||!pkg.equals(await readFile('package.json')))throw Error('Dependency inputs changed during generation. Run again.');
+const raw=JSON.parse(generated.stdout),bom=normalizeNpmSbom(raw),root=bom.metadata?.component;
+if(bom.bomFormat!=='CycloneDX'||root?.name!==JSON.parse(pkg).name||!Array.isArray(bom.components)||!Array.isArray(bom.dependencies))throw Error('Invalid npm SBOM output');
+const refs=new Set([root['bom-ref'],...bom.components.map(c=>c['bom-ref'])]);
+if(refs.has(undefined)||refs.size!==bom.components.length+1)throw Error('Missing or duplicate component reference');
+for(const d of bom.dependencies)if(!refs.has(d.ref)||(d.dependsOn??[]).some(ref=>!refs.has(ref)))throw Error('Unresolved dependency reference');
+await validateNpmSbom(bom);
+const bytes=Buffer.from(JSON.stringify(bom,null,2)+'\n');
+const manifest={format:'lanka-sbom-package/v1',createdAt:new Date().toISOString(),package:root.name,version:root.version,schemaValidation:'CycloneDX 1.5 bundled schema; conservative ASCII URI/email formats',scope:'npm lockfile including development and optional dependencies; not an installed runtime inventory',components:bom.components.length,npmInstallationEntries:raw.components.length,normalization:"Repeated package identities merged; all paths, references and hashes retained; dependency edges unioned",packageJsonSha256:hash(pkg),packageLockSha256:hash(lock),sbomSha256:hash(bytes),sbomFile:'sbom.cdx.json',excluded:['Container OS packages','External PostgreSQL/Codex installations','Bundled fonts and non-npm assets; see THIRD_PARTY_NOTICES.md']};
+await mkdir(output,{recursive:false});
+try{await writeFile(join(output,'sbom.cdx.json'),bytes,{flag:'wx'});await writeFile(join(output,'manifest.json'),JSON.stringify(manifest,null,2)+'\n',{flag:'wx'});}catch(error){await rm(output,{recursive:true,force:true});throw error;}
+console.log(JSON.stringify({output,components:manifest.components,packageLockSha256:manifest.packageLockSha256}));

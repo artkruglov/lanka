@@ -1,0 +1,20 @@
+{
+  "cloudflare": {
+    "accountId": "",
+    "workerName": "",
+    "hostname": "",
+    "d1DatabaseId": "",
+    "d1DatabaseName": "",
+    "r2BucketName": ""
+  },
+  "access": {
+    "teamDomain": "",
+    "audience": "",
+    "workerId": "",
+    "workerEmail": ""
+  },
+  "fly": {
+    "appName": "",
+    "primaryRegion": ""
+  }
+}

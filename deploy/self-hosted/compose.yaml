@@ -1,0 +1,84 @@
+name: lanka-self-hosted
+x-application: &application
+  image: lanka-self-hosted:local
+  build:
+    context: ../..
+    dockerfile: deploy/self-hosted/Dockerfile
+  init: true
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  tmpfs:
+    - /tmp:uid=1000,gid=1000,mode=0700,size=268435456
+  networks: [backend]
+services:
+  db:
+    image: postgres:16-bookworm@sha256:bb3e1a57e5407e0a5280b4211980a5e537f4abd234a87014ac979849a78dd825
+    environment:
+      POSTGRES_DB: lanka
+      POSTGRES_USER: lanka_operator
+      POSTGRES_PASSWORD_FILE: /run/secrets/database-password
+      POSTGRES_INITDB_ARGS: --locale-provider=icu --icu-locale=und
+    secrets: [database-password]
+    volumes: [database:/var/lib/postgresql/data]
+    networks: [backend]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U lanka_operator -d lanka']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+  migrate:
+    <<: *application
+    profiles: [operator]
+    command: [node, .project-runtime/migrate-self-hosted.mjs, --config, /run/secrets/operator.json]
+    secrets: [operator.json]
+    depends_on:
+      db: {condition: service_healthy}
+  grant-runtime:
+    <<: *application
+    profiles: [operator]
+    command: [node, .project-runtime/grant-self-hosted-runtime.mjs, --config, /run/secrets/operator.json, --request, /run/secrets/runtime-role.json]
+    secrets: [operator.json, runtime-role.json]
+    depends_on:
+      db: {condition: service_healthy}
+  provision:
+    <<: *application
+    profiles: [operator]
+    command: [node, .project-runtime/provision-organization.mjs, --config, /run/secrets/operator.json, --request, /run/secrets/organization.json]
+    secrets: [operator.json, organization.json]
+    depends_on:
+      db: {condition: service_healthy}
+  app:
+    <<: *application
+    environment:
+      LANKA_UI_REFRESH: "${LANKA_UI_REFRESH:-0}"
+    ports: ['127.0.0.1:4318:4318']
+    volumes: [runtime:/var/lib/lanka]
+    secrets: [lanka.json]
+    depends_on:
+      db: {condition: service_healthy}
+    restart: unless-stopped
+    stop_grace_period: 45s
+    healthcheck:
+      test: [CMD, node, .project-runtime/check-self-hosted-health.mjs, --config, /run/secrets/lanka.json]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+networks:
+  backend:
+volumes:
+  database:
+  runtime:
+secrets:
+  database-password:
+    file: ./private/database-password
+  operator.json:
+    file: ./private/operator.json
+  lanka.json:
+    file: ./private/lanka.json
+  runtime-role.json:
+    file: ./private/runtime-role.json
+  organization.json:
+    file: ./private/organization.json
